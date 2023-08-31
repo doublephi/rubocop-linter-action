@@ -26,7 +26,8 @@ class Command
   def check_scope
     return unless config["check_scope"] == "modified"
 
-    "git diff #{base_branch}... --name-only --diff-filter=AM | xargs"
+    #"git diff #{base_branch}... --name-only --diff-filter=AM | xargs"
+    "git add -N .; git diff --name-only | xargs"
   end
 
   def rubocop_config
